@@ -1,0 +1,330 @@
+
+.conteiner{
+    margin: 0 auto;
+    max-width: 1200px;
+    font-family: Arial, Helvetica, sans-serif, 'Times New Roman', Times, serif;
+}
+.escuro{
+    background-color: black;
+    color: white;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+}
+.escuro nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+}
+h1{
+    font-size: 28px;
+    font-weight: bold;
+}
+.vermelho{
+    color: red;
+}
+.navegacao{
+    display: flex;
+}
+.topico{
+    margin: 10px;
+    list-style: none;
+}
+.games, .todos, .consoles, .acessorios{
+    color:rgba(0, 0, 0, 0.356);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid white;
+    font-size: 16px;
+    transition: 0.5s;
+}
+.escuro .games,.escuro .todos,.escuro .consoles,.escuro .acessorios{
+    color:white;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    font-size: 16px;
+
+}
+.games:hover, .todos:hover, .consoles:hover, .acessorios:hover{
+    color: black;
+    border-bottom: 2px solid black;
+    transition:  0.5s;
+}
+.escuro .games:hover,.escuro .todos:hover,.escuro .consoles:hover,.escuro .acessorios:hover {
+    color: red;
+    border-bottom: 2px solid red;
+    transition:  0.5s;
+}
+.vitrine{
+    max-width: 850px;
+    display: flex;
+    margin-right: 30px;
+}
+.produto-geral{
+    display: flex;
+    flex-wrap: wrap;
+}
+.produto{
+    list-style: none;
+    width: 210px;
+    border: 2px solid white;
+    margin: 10px;
+    padding: 12px;
+    transition: 0.5;
+}
+.escuro .produto{
+    list-style: none;
+    width: 210px;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 12px;
+    transition: 0.5;
+}
+.produto:hover{
+    border: 2px solid black;
+    transition: 0.5s;
+}
+.escuro .produto:hover{
+    border: 2px solid white;
+    transition: 0.5s;
+}
+img{
+    width: 210px;
+    height: 210px;
+}
+.categoria{
+    background-color: red;
+    color: white;
+    padding: 8px;
+    width: 75px;
+    margin-left: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+.descricao{
+    line-height: 22px;
+    width: 220px;
+}
+.preco{
+    color: blue;
+    font-size: 20px;
+}
+.add{
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid white;
+    transition: 0.5s;
+}
+.escuro .add{
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid black;
+    transition: 0.5s;
+}
+.add:hover{
+    color:blue;
+    border-bottom: 2px solid blue;
+    transition: 0.5x;
+    cursor: pointer;
+}
+.pesquisa-carrinho{
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+    margin-top: 26px;
+}
+main{
+    display: flex;
+    flex-direction: row;
+}
+.barra-de-pesquisa{
+    width: 200px;
+    padding: 10px;
+}
+form{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+.pesquisa{
+    width: 125px;
+    margin-left: 5px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    cursor: pointer;
+    transition: 0.5s;
+    font-weight: 600;
+}
+.pesquisa:hover{
+    color:red;
+    background-color: white;
+    transition: 0.5s;
+}
+h3{
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    color: white;
+    padding: 15px;
+}
+.produtos-no-carrinho{
+    display: flex;
+    margin: 10px;
+}
+.img-car{
+    width: 130px;
+    height: 130px;
+}
+.info-car{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 10px;
+    margin-left: 10px;
+}
+.nomeCar{
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.remover{
+    text-decoration: none;
+    color: black;
+    transition: 0.5;
+}
+.escuro .remover{
+    text-decoration: none;
+    color: white;
+    transition: 0.5;
+}
+.remover:hover{
+    color: red;
+    transition: 0.5;
+    cursor: pointer;
+}
+.carrinho{
+    overflow-y: auto;
+    height: 300px;
+    margin-left: -15px;
+    margin-bottom: 30px;
+}
+.total{
+    background-color: rgba(0, 0, 0, 0.822);
+    color: white;
+    padding: 20px;
+    line-height: 25px;
+}
+.escuro .total{
+    background-color: rgba(255, 247, 247, 0.089);
+    color: white;
+    padding: 20px;
+    line-height: 25px;
+}
+.separar{
+    display: flex;
+    justify-content: space-between;
+}
+.vazio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.089);
+    flex-direction: column;
+    line-height: 5px;
+    height: 300px;
+    width: 300px;
+}
+.escuro .vazio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 247, 247, 0.089);
+    flex-direction: column;
+    line-height: 5px;
+    height: 300px;
+    width: 300px;
+}
+footer{
+    background-color: rgb(216, 4, 4);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.dados{
+    list-style: none;
+    display: flex;
+    line-height: 27px;
+    align-items: center;
+    flex-direction: column;
+}
+.link{
+    color:white;
+    font-weight: 600;
+    transition: 0.5s;
+}
+.link:hover{
+    color: rgb(10, 10, 10);
+    transition: 0.5s;
+}
+.dev{
+    font-size: 25px;
+    margin-bottom: 10px;
+} 
+.welcome{
+    display: flex;
+    margin-right: 500px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+.dica{
+    margin-top: -10px
+}
+h4{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.dark{
+    background-color: white;
+    border: 2px solid rgba(0, 0, 0, 0.356);
+    color: rgba(0, 0, 0, 0.356);
+    padding: 2px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.escuro .dark{
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    padding: 2px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.dark:hover{
+    color: black;
+    border: 2px solid black;
+    transition:  0.5s;
+}
+.escuro .dark:hover{
+    color: red;
+    border: 2px solid red;
+    transition:  0.5s;
+}
