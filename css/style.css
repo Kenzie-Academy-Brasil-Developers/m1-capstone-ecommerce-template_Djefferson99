@@ -357,7 +357,12 @@ h4{
         justify-content: center;
     }
     .pesquisa-carrinho{
-        justify-content: center;
-        margin-left: 60px;
+       margin: 0 auto;
+    }
+    .add:hover{
+        color:blue;
+        border: 2px solid blue;
+        transition: 0s;
+        background-color: white;
     }
 }
