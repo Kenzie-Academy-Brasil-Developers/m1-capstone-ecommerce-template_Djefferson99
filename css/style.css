@@ -336,7 +336,28 @@ h4{
         flex-direction: column;
     }
     .navegacao {
-        flex-direction: column;
+        display: flex;
         margin-top: -20px;
+        align-items: center;
+        flex-direction: row;
+    }
+    .escuro nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid white;
+    }
+    .escuro .add, .add {
+     font-size: 20px;
+    }
+    .produto-geral {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .pesquisa-carrinho{
+        justify-content: center;
+        margin-left: 60px;
     }
 }
