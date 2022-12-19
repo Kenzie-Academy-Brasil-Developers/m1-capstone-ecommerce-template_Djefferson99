@@ -1,0 +1,65 @@
+(window["canvasWebpackJsonp"]=window["canvasWebpackJsonp"]||[]).push([[3745],{"0MP0":function(t,e,n){"use strict"
+n.r(e)
+var a=n("RtDj")
+var o=n("ouhR")
+var i=n.n(o)
+var c=n("q1tI")
+var r=n.n(c)
+var s=n("i8i4")
+var u=n.n(s)
+n("17x9")
+var d=n("VTBJ")
+var l=n("1OyB")
+var p=n("vuIU")
+var v=n("Ji7U")
+var m=n("LK+K")
+var L=n("hPGw")
+var b=r.a.createElement("path",{d:"M1581.17647,1072.47059 L1355.29412,1072.47059 L1355.29412,1511.02118 L988.461176,1724.70588 C970.955294,1734.98353 949.044706,1734.98353 931.538824,1724.70588 L564.705882,1511.02118 L564.705882,1072.47059 L338.823529,1072.47059 L338.823529,685.647059 C338.823529,665.543529 349.665882,646.908235 366.832941,636.856471 L677.647059,455.811765 L677.647059,620.705882 L1242.35294,620.705882 L1242.35294,455.811765 L1553.16706,636.856471 C1570.33412,646.908235 1581.17647,665.543529 1581.17647,685.647059 L1581.17647,1072.47059 Z M1694.11765,1072.47059 L1694.11765,685.647059 C1694.11765,625.562353 1661.92941,569.430588 1609.97647,539.162353 L1242.35294,325.138824 L1242.35294,56 L677.647059,56 L677.647059,325.138824 L310.023529,539.162353 C258.070588,569.430588 225.882353,625.562353 225.882353,685.647059 L225.882353,1072.47059 L-5.68434189e-14,1072.47059 L-5.68434189e-14,1637.17647 L557.025882,1637.17647 L874.729412,1822.28706 C901.157647,1837.64706 930.409412,1845.32706 960,1845.32706 C989.590588,1845.32706 1018.95529,1837.64706 1045.27059,1822.28706 L1362.97412,1637.17647 L1920,1637.17647 L1920,1072.47059 L1694.11765,1072.47059 Z",fillRule:"evenodd",stroke:"none",strokeWidth:"1"})
+var O=function(t){Object(v["a"])(n,t)
+var e=Object(m["a"])(n)
+function n(){Object(l["a"])(this,n)
+return e.apply(this,arguments)}Object(p["a"])(n,[{key:"render",value:function(){return r.a.createElement(L["a"],Object.assign({},this.props,{name:"IconModule",viewBox:"0 0 1920 1920"}),b)}}])
+n.displayName="IconModuleSolid"
+return n}(c["Component"])
+O.glyphName="module"
+O.variant="Solid"
+O.propTypes=Object(d["a"])({},L["a"].propTypes)
+var y=n("HGxv")
+var f
+const _=Object(y["useScope"])("modules_home_page")
+class C extends r.a.Component{render(){window.ENV.CONTEXT_URL_ROOT
+return Object(a["a"])("ul",{className:"ic-EmptyStateList"},void 0,Object(a["a"])("li",{className:"ic-EmptyStateList__Item"},void 0,Object(a["a"])("div",{className:"ic-EmptyStateList__BillboardWrapper"},void 0,Object(a["a"])("button",{type:"button",className:"ic-EmptyStateButton",onClick:this.props.onCreateButtonClick},void 0,f||(f=Object(a["a"])(O,{className:"ic-EmptyStateButton__SVG"})),Object(a["a"])("span",{className:"ic-EmptyStateButton__Text"},void 0,_.t("Create a new Module"))))))}}C.defaultProps={onCreateButtonClick:()=>{}}
+var j=n("3HOH")
+var E=n("3lLS")
+var N=n.n(E)
+N()(()=>{const t=document.getElementById("modules_homepage_user_create")
+t&&u.a.render(Object(a["a"])(C,{onCreateButtonClick:j["a"].addModule}),t)
+ENV.NO_MODULE_PROGRESSIONS&&i()(".module_progressions_link").remove()})},"0k/6":function(t,e,n){"use strict"
+n.d(e,"a",(function(){return c}))
+n.d(e,"b",(function(){return r}))
+n.d(e,"c",(function(){return s}))
+n.d(e,"d",(function(){return d}))
+var a=n("NFDp")
+const o="inst-button-and-icons-edit"
+const i="inst-button-and-icons-edit-toolbar"
+const c="data-inst-icon-maker-icon"
+const r="data-download-url"
+const s="icon_maker_icons"
+const u=t=>!!(null!==t&&void 0!==t&&t.getAttribute(c))
+function d(t,e){l(t,e)
+p(t)}function l(t,e){t.ui.registry.addButton(o,{onAction:e,text:Object(a["a"])("Edit"),tooltip:Object(a["a"])("Edit Existing Button / Icon")})}function p(t){t.ui.registry.addContextToolbar(i,{items:o,position:"node",scope:"node",predicate:u})}},"9dNb":function(t,e,n){"use strict"
+n.d(e,"a",(function(){return s}))
+var a=n("0k/6")
+const o="image/svg"
+const i=400
+const c="image/svg+xml-icon-maker-icons"
+async function r(t){try{const e=await t.slice(0,i).text()
+if(e.includes(c))return{category:a["c"]}}catch{}}async function s(t){var e
+if(null!==t&&void 0!==t&&null!==(e=t.type)&&void 0!==e&&e.includes(o))return await r(t)}},NFDp:function(t,e,n){"use strict"
+var a=n("/HcR")
+var o=n.n(a)
+const i=o.a.namespace()
+i.addLocale=t=>{i.setup({translations:{...i.setup().translations,...t}})}
+e["a"]=i}}])
+
+//# sourceMappingURL=context_modules-c-718ad17fe5.js.map

@@ -1,0 +1,81 @@
+(window["canvasWebpackJsonp"]=window["canvasWebpackJsonp"]||[]).push([[4292],{kfGi:function(e,t,a){"use strict"
+a.r(t)
+a.d(t,"ToDoSidebar",(function(){return z}))
+var s=a("q1tI")
+var i=a.n(s)
+var r=a("/MKj")
+var n=a("17x9")
+var o=a("f0Wu")
+var l=a.n(o)
+var c=a("lxh4")
+var m=a("ZbPE")
+var d=a("uSnb")
+var u=a("n12J")
+var p=a("Xx/m")
+var h=a("ukBn")
+var b=a("mgUk")
+var v=a("Mmr1")
+var I=a("8ruJ")
+var f=a("Q0Ww")
+var E=a("Un/D")
+var D=a("dOsU")
+var L=a("Kimu")
+var T=a("+Gzo")
+var g=a("Oak0")
+var O=a("VTBJ")
+var j=a("1OyB")
+var C=a("vuIU")
+var _=a("Ji7U")
+var k=a("LK+K")
+var w=a("hPGw")
+var y=i.a.createElement("path",{d:"M1783.68,1468.23529 L1468.23529,1783.68 L1468.23529,1468.23529 L1783.68,1468.23529 Z M1242.35294,1129.41176 L1242.35294,1242.35294 L338.823529,1242.35294 L338.823529,1129.41176 L1242.35294,1129.41176 Z M1581.28941,790.588235 L1581.28941,903.529412 L338.823529,903.529412 L338.823529,790.588235 L1581.28941,790.588235 Z M621.176471,0 C714.578824,0 790.588235,76.0094118 790.588235,169.411765 C790.588235,195.501176 784.150588,219.896471 773.647059,242.032941 L773.647059,242.032941 L999.981176,468.254118 L920.018824,548.216471 L693.797647,321.882353 C671.661176,332.385882 647.265882,338.823529 621.176471,338.823529 C527.774118,338.823529 451.764706,262.814118 451.764706,169.411765 C451.764706,76.0094118 527.774118,0 621.176471,0 Z M1016.47059,225.882353 L1016.47059,338.823529 L1807.05882,338.823529 L1807.05882,1355.29412 L1355.29412,1355.29412 L1355.29412,1807.05882 L112.941176,1807.05882 L112.941176,338.823529 L338.823529,338.823529 L338.823529,225.882353 L5.68434189e-14,225.882353 L5.68434189e-14,1920 L1421.47765,1920 C1466.65412,1920 1509.23294,1902.38118 1541.19529,1870.41882 L1870.41882,1541.30824 C1902.38118,1509.23294 1920,1466.65412 1920,1421.47765 L1920,225.882353 L1016.47059,225.882353 Z",fillRule:"evenodd",stroke:"none",strokeWidth:"1"})
+var N=function(e){Object(_["a"])(a,e)
+var t=Object(k["a"])(a)
+function a(){Object(j["a"])(this,a)
+return t.apply(this,arguments)}Object(C["a"])(a,[{key:"render",value:function(){return i.a.createElement(w["a"],Object.assign({},this.props,{name:"IconNote",viewBox:"0 0 1920 1920",bidirectional:true}),y)}}])
+a.displayName="IconNoteLine"
+return a}(s["Component"])
+N.glyphName="note"
+N.variant="Line"
+N.propTypes=Object(O["a"])({},w["a"].propTypes)
+var S=a("q7ZJ")
+const R=e=>{switch(e){case"Assignment":return i.a.createElement(I["a"],{label:Object(h["a"])("Assignment"),className:"ToDoSidebarItem__Icon"})
+case"Quiz":return i.a.createElement(f["a"],{label:Object(h["a"])("Quiz"),className:"ToDoSidebarItem__Icon"})
+case"Discussion":return i.a.createElement(E["a"],{label:Object(h["a"])("Discussion"),className:"ToDoSidebarItem__Icon"})
+case"Announcement":return i.a.createElement(D["a"],{label:Object(h["a"])("Announcement"),className:"ToDoSidebarItem__Icon"})
+case"Calendar Event":return i.a.createElement(L["a"],{label:Object(h["a"])("Calendar Event"),className:"ToDoSidebarItem__Icon"})
+case"Page":return i.a.createElement(T["a"],{label:Object(h["a"])("Page"),className:"ToDoSidebarItem__Icon"})
+case"Peer Review":return i.a.createElement(g["a"],{label:Object(h["a"])("Peer Review"),className:"ToDoSidebarItem__Icon"})
+default:return i.a.createElement(N,{label:Object(h["a"])("To Do"),className:"ToDoSidebarItem__Icon"})}}
+const x=(e,t)=>{const a=e.find(e=>e.id===t)
+return a?a.shortName:""}
+class Z extends i.a.Component{constructor(...e){super(...e)
+this.handleClick=()=>{this.props.handleDismissClick(this.props.item)}
+this.getInformationRow=(e,t)=>{const a=[]
+t&&a.push(i.a.createElement(c["a"].Item,{key:"points"},Object(h["a"])("{numPoints} points",{numPoints:t})))
+a.push(i.a.createElement(c["a"].Item,{key:"date"},Object(S["c"])(e,this.props.timeZone)))
+return a}}focus(){const e=this.linkRef||this.buttonRef
+e&&e.focus()}itemTitle(){if("Peer Review"===this.props.item.type)return Object(h["a"])("Peer Review for {itemTitle}",{itemTitle:this.props.item.title})
+return this.props.item.title}render(){const e=i.a.createElement(m["a"],{size:"small",lineHeight:"fit"},this.itemTitle())
+const t=this.props.item.html_url?i.a.createElement(p["a"],{variant:"link",theme:{mediumPaddingHorizontal:"0",mediumHeight:"normal"},buttonRef:e=>{this.linkRef=e},href:this.props.item.html_url},e):i.a.createElement(m["a"],null,e)
+return i.a.createElement("div",{className:"ToDoSidebarItem"},R(this.props.item.type),i.a.createElement("div",{className:"ToDoSidebarItem__Info"},i.a.createElement("div",{className:"ToDoSidebarItem__Title"},t),i.a.createElement(m["a"],{color:"secondary",size:"small",weight:"bold",lineHeight:"fit"},x(this.props.courses,this.props.item.course_id)),i.a.createElement(c["a"],{variant:"inline",delimiter:"pipe",size:"small"},this.getInformationRow(this.props.item.date,this.props.item.points))),i.a.createElement("div",{className:"ToDoSidebarItem__Close"},i.a.createElement(v["a"],{variant:"icon",size:"small",onClick:this.handleClick,buttonRef:e=>{this.buttonRef=e}},Object(h["a"])("Dismiss {itemTitle}",{itemTitle:this.props.item.title}))))}}Z.propTypes={item:Object(n["shape"])({title:n["string"],html_url:n["string"],type:n["string"],course_id:n["string"],date:n["object"],points:n["number"]}),courses:Object(n["arrayOf"])(n["object"]).isRequired,handleDismissClick:n["func"].isRequired,timeZone:n["string"]}
+class z extends s["Component"]{constructor(e){super(e)
+this.dismissedItemIndex=null
+this.titleFocus=null
+this.state={visibleToDos:this.getVisibleItems(e.items)}}componentDidMount(){this.props.sidebarLoadInitialItems(l.a.tz(this.props.timeZone).startOf("day"),this.props.forCourse)}UNSAFE_componentWillReceiveProps(e){const t=this.getVisibleItems(e.items)
+this.setState({visibleToDos:t})}componentDidUpdate(){if(null!=this.dismissedItemIndex){const e=this.dismissedItemIndex-1
+this.dismissedItemIndex=null
+e>=0?this.todoItemComponents[e].focus():this.titleFocus.focus()}}getVisibleItems(e){const t=e=>{if(!e)return false
+return!e.completed}
+return e.filter(t).slice(0,7)}handleDismissClick(e,t){this.dismissedItemIndex=e
+this.props.sidebarCompleteItem(t).catch(()=>{this.dismissedItemIndex=null})}renderShowAll(){if(this.props.changeDashboardView&&this.state.visibleToDos.length>0)return i.a.createElement(u["a"],{as:"div",textAlign:"center"},i.a.createElement(p["a"],{variant:"link",onClick:()=>this.props.changeDashboardView("planner")},Object(h["a"])("Show All")))
+return null}renderItems(){this.todoItemComponents=[]
+if(0===this.state.visibleToDos.length)return i.a.createElement(m["a"],{size:"small"},Object(h["a"])("Nothing for now"))
+return i.a.createElement(c["a"],{id:"planner-todosidebar-item-list",variant:"unstyled"},this.state.visibleToDos.map((e,t)=>i.a.createElement(c["a"].Item,{key:e.uniqueId},i.a.createElement(Z,{ref:e=>{this.todoItemComponents[t]=e},item:e,courses:this.props.courses,handleDismissClick:()=>this.handleDismissClick(t,e),locale:this.props.locale,timeZone:this.props.timeZone}))))}render(){if(!this.props.loaded)return i.a.createElement("div",{"data-testid":"ToDoSidebar"},i.a.createElement("h2",{className:"todo-list-header"},Object(h["a"])("To Do")),i.a.createElement(u["a"],{as:"div",textAlign:"center"},i.a.createElement(d["a"],{renderTitle:()=>Object(h["a"])("To Do Items Loading"),size:"small"})))
+return i.a.createElement("div",{"data-testid":"ToDoSidebar"},i.a.createElement("h2",{className:"todo-list-header"},i.a.createElement("span",{tabIndex:"-1",ref:e=>{this.titleFocus=e}},Object(h["a"])("To Do"))),this.renderItems(),this.renderShowAll())}}z.propTypes={sidebarLoadInitialItems:n["func"].isRequired,sidebarCompleteItem:n["func"].isRequired,items:Object(n["arrayOf"])(n["object"]).isRequired,loaded:n["bool"],courses:Object(n["arrayOf"])(n["object"]).isRequired,timeZone:n["string"],locale:n["string"],changeDashboardView:n["func"],forCourse:n["string"]}
+z.defaultProps={loaded:false,timeZone:l.a.tz.guess(),locale:"en",forCourse:void 0}
+const P=e=>({courses:e.courses,items:e.sidebar.items,loaded:e.sidebar.loaded})
+const A={sidebarLoadInitialItems:b["A"],sidebarCompleteItem:b["z"]}
+t["default"]=Object(r["b"])(P,A)(z)}}])
+
+//# sourceMappingURL=4292-c-cd507f9b1d.js.map

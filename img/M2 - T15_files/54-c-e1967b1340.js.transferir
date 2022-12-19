@@ -1,0 +1,461 @@
+(window["canvasWebpackJsonp"]=window["canvasWebpackJsonp"]||[]).push([[54],{"0unK":function(e,t,s){"use strict"
+s.d(t,"a",(function(){return n}))
+var i=s("RtDj")
+var o=s("q1tI")
+var a=s.n(o)
+class n extends a.a.Component{render(){return Object(i["a"])("div",{className:this.props.className,style:this.props.style},void 0,this.props.children)}}n.displayName="ModalContent"
+n.defaultProps={className:"ReactModal__Body",style:{}}},"7lHU":function(e,t,s){"use strict"
+var i=s("RtDj")
+var o=s("q1tI")
+var a=s.n(o)
+var n=s("17x9")
+var r=s("RfgP")
+var l=s("HGxv")
+var p=s("vCN0")
+var c=s("0unK")
+var d=s("GN1s")
+const h=Object(l["useScope"])("zip_file_options_form")
+class u extends a.a.Component{constructor(...e){super(...e)
+this.handleExpandClick=()=>{this.props.onZipOptionsResolved({file:this.props.fileOptions.file,expandZip:true})}
+this.handleUploadClick=()=>{this.props.onZipOptionsResolved({file:this.props.fileOptions.file,expandZip:false})}
+this.buildMessage=e=>{let t
+if(this.props.fileOptions){const e=this.props.fileOptions.file.name
+t=h.t("message",'Would you like to expand the contents of "%{fileName}" into the current folder, or upload the zip file as is?',{fileName:e})}return t}}render(){return a.a.createElement(p["a"],{className:"ReactModal__Content--canvas ReactModal__Content--mini-modal",isOpen:!!this.props.fileOptions,ref:"canvasModal",title:h.t("zip_options","Zip file options"),onRequestClose:this.props.onClose},Object(i["a"])(c["a"],{},void 0,Object(i["a"])("p",{className:"modalMessage"},void 0,this.buildMessage())),Object(i["a"])(d["a"],{},void 0,Object(i["a"])("button",{className:"btn",onClick:this.handleExpandClick},void 0,h.t("expand","Expand It")),Object(i["a"])("button",{className:"btn btn-primary",onClick:this.handleUploadClick},void 0,h.t("upload","Upload It"))))}}u.displayName="ZipFileOptionsForm"
+var m=u
+var f=s("MAjw")
+Object(n["oneOfType"])([n["string"],n["number"]]).isRequired,n["string"].isRequired,n["object"],n["bool"],n["bool"],n["string"],n["string"],n["bool"],n["bool"],n["bool"],n["bool"],n["func"],n["func"],n["func"],n["func"]
+class g extends a.a.Component{constructor(e){super(e)
+this.addFiles=()=>this.addFileInputRef.current.click()
+this.handleFilesInputChange=e=>{this.props.onChange(e)
+f["a"].setOptionsFromFiles(e.target.files)
+this.setStateFromOptions()}
+this.onNameConflictResolved=e=>{f["a"].onNameConflictResolved(e)
+this.setStateFromOptions(()=>{if(this.state.resolvedNames.length+this.state.nameCollisions.length+this.state.zipOptions.length===0){this.reset()
+this.props.onChange()}})}
+this.onZipOptionsResolved=e=>{f["a"].onZipOptionsResolved(e)
+this.setStateFromOptions()}
+this.onClose=()=>{if(this.props.autoUpload){this.reset()
+f["a"].resetState()
+this.setStateFromOptions()
+this.props.onEmptyOrClose()}else this.restore()}
+this.setStateFromOptions=e=>{this.setState(f["a"].getState(),e)}
+this.buildPotentialModal=()=>{if(this.state.zipOptions.length&&!this.props.alwaysUploadZips)return Object(i["a"])(m,{fileOptions:this.state.zipOptions[0],onZipOptionsResolved:this.onZipOptionsResolved,onClose:this.onClose})
+if(this.state.nameCollisions.length&&!this.props.alwaysRename)return Object(i["a"])(r["a"],{"data-testid":"rename-dialog",fileOptions:this.state.nameCollisions[0],onNameConflictResolved:this.onNameConflictResolved,onClose:this.onClose,allowSkip:this.props.allowSkip,onRenameFileMessage:this.props.onRenameFileMessage,onLockFileMessage:this.props.onLockFileMessage})}
+this.formRef=a.a.createRef()
+this.addFileInputRef=a.a.createRef()
+this.state={...f["a"].getState(),showResolveModals:this.props.autoUpload}
+this.setFolder(e.currentFolder)
+this.setUploadOptions(e)}setFolder(e){const t=f["a"].getFolder()
+f["a"].setFolder(e)
+if(!this.props.autoUpload&&null!==t&&void 0!==t&&t.id&&null!==e&&void 0!==e&&e.id&&e.id!==t.id){f["a"].setOptionsFromFiles(this.addFileInputRef.current.files)
+this.setStateFromOptions()}}getFolder(){return f["a"].getFolder()}reset(e=false){if(e||this.props.autoUpload){var t
+null===(t=this.formRef.current)||void 0===t||t.reset()}this.setState({showResolveModals:this.props.autoUpload})}restore(){f["a"].setOptionsFromFiles(this.addFileInputRef.current.files)
+this.setStateFromOptions()
+this.setState({showResolveModals:false})}setUploadOptions({alwaysRename:e,alwaysUploadZips:t}){f["a"].setUploadOptions({alwaysRename:e,alwaysUploadZips:t})}_actualQueueUploads(){this.reset()
+return f["a"].queueUploads(this.props.contextId,this.props.contextType)}queueUploads(){this.props.autoUpload?this._actualQueueUploads():this.state.showResolveModals||this.setState({showResolveModals:true})}componentDidUpdate(){this.setFolder(this.props.currentFolder)
+this.setUploadOptions(this.props)
+0===this.state.zipOptions.length&&0===this.state.nameCollisions.length&&f["a"].hasNewOptions()&&(this.props.autoUpload?this.state.resolvedNames.length>0?this._actualQueueUploads():this.props.onEmptyOrClose():this.state.showResolveModals&&(this.state.resolvedNames.length>0?this._actualQueueUploads():this.restore()))}UNSAFE_componentWillMount(){f["a"].onChange=this.setStateFromOptions}componentWillUnMount(){f["a"].onChange=null}render(){return Object(i["a"])("span",{},void 0,a.a.createElement("form",{ref:this.formRef,className:this.props.visible?"":"hidden"},a.a.createElement("input",{id:this.props.inputId,name:this.props.inputName,type:"file",ref:this.addFileInputRef,onChange:this.handleFilesInputChange,multiple:true,"data-testid":"file-input",disabled:this.props.disabled})),this.state.showResolveModals&&this.buildPotentialModal())}}g.defaultProps={allowSkip:false,autoUpload:true,disabled:false,alwaysRename:false,alwaysUploadZips:false,onChange:()=>{},onEmptyOrClose:()=>{},onRenameFileMessage:()=>{},onLockFileMessage:()=>{}}
+t["a"]=g},"9Qmj":function(e,t,s){"use strict"
+s.d(t,"a",(function(){return n}))
+var i=s("RtDj")
+s("q1tI")
+s("17x9")
+var o=s("TSYQ")
+var a=s.n(o)
+function n(e){return Object(i["a"])("div",{className:a()({"progress-bar__bar-container":true,"almost-done":100===e.progress})},void 0,Object(i["a"])("div",{className:a()({"progress-bar__bar":true,"almost-done":100===e.progress}),role:"progressbar","aria-valuenow":e.progress,"aria-valuemin":"0","aria-valuemax":"100","aria-label":e["aria-label"]||"",style:{width:Math.min(e.progress,100)+"%"}}))}},C8i9:function(e,t,s){"use strict"
+var i=s("ouhR")
+var o=s.n(i)
+var a=s("Y/W1")
+var n=s.n(a)
+var r=s("QYKH")
+var l=s("EyBU")
+s("dhbk")
+var p=function(e,t){return function(){return e.apply(t,arguments)}},c=function(e,t){for(var s in t)d.call(t,s)&&(e[s]=t[s])
+function i(){this.constructor=e}i.prototype=t.prototype
+e.prototype=new i
+e.__super__=t.prototype
+return e},d={}.hasOwnProperty,h=[].slice
+t["a"]=function(e){c(t,e)
+function t(){this.externalToolEnabled=p(this.externalToolEnabled,this)
+return t.__super__.constructor.apply(this,arguments)}t.prototype.url=function(){return this.isNew()?t.__super__.url.apply(this,arguments):"/api/v1/files/"+this.id}
+t.prototype.initialize=function(e,s){null==s&&(s={})
+this.preflightUrl=s.preflightUrl
+return t.__super__.initialize.apply(this,arguments)}
+t.prototype.save=function(e,s){var i,a,n,r,p,c
+null==e&&(e={})
+null==s&&(s={})
+if(!this.get("file"))return t.__super__.save.apply(this,arguments)
+this.set(e)
+i=o.a.Deferred()
+p=(d=this,function(e){d.set(e)
+i.resolve(e)
+return"function"===typeof s.success?s.success(e):void 0})
+var d
+r=function(e){i.reject(e)
+return"function"===typeof s.error?s.error(e):void 0}
+a=this.get("file")
+n=(a.value||a.name).split(/[\/\\]/).pop()
+a=a.files[0]
+c={name:n,on_duplicate:"rename"}
+Object(l["uploadFile"])(this.preflightUrl,c,a).then(p)["catch"](r)
+return i}
+t.prototype.isFile=true
+t.prototype.toJSON=function(){var e
+if(!this.get("file"))return t.__super__.toJSON.apply(this,arguments)
+return n.a.pick.apply(n.a,[this.attributes,"file"].concat(h.call(n.a.keys(null!=(e=this.uploadParams)?e:{}))))}
+t.prototype.present=function(){return n.a.clone(this.attributes)}
+t.prototype.externalToolEnabled=function(e){var t
+if(e.accept_media_types&&e.accept_media_types.length>0){t=this.get("content-type")
+return n.a.find(e.accept_media_types.split(","),(function(e){var s
+s=new RegExp("^"+e.replace("*",".*")+"$")
+return t.match(s)}))}return true}
+return t}(r["a"])},EyBU:function(e,t,s){"use strict"
+s.r(t)
+s.d(t,"uploadFile",(function(){return h}))
+s.d(t,"completeUpload",(function(){return u}))
+s.d(t,"submissionCommentAttachmentsUpload",(function(){return m}))
+s.d(t,"uploadFiles",(function(){return f}))
+var i=s("BrAc")
+var o=s("Qyje")
+var a=s.n(o)
+var n=s("HGxv")
+var r=s("gBVS")
+const l=Object(n["useScope"])("upload_file")
+function p(e){if("Network Error"===e.message){const t=new Error(l.t("Canvas failed to initiate the upload."))
+t.originalError=e
+return Promise.reject(t)}return Promise.reject(e)}function c(e){if("Network Error"===e.message){const t=new Error(l.t("Unable to transmit file to the storage service. The service may be down or you may need to re-login to Canvas."))
+t.originalError=e
+return Promise.reject(t)}return Promise.reject(e)}function d(e){if("Network Error"===e.message){const t=new Error(l.t("Canvas failed to complete the upload."))
+t.originalError=e
+return Promise.reject(t)}return Promise.reject(e)}function h(e,t,s,o=i["a"],n){if(!s&&!t.url)throw new Error("expected either a file to upload or a url to clone",{file:s,preflightData:t})
+if(s&&t.url)throw new Error("can't upload with both a file object and a url to clone",{file:s,preflightData:t})
+t.no_redirect=true
+t["attachment[context_code]"]&&(t=a.a.stringify(t))
+return o.post(e,t).catch(p).then(e=>u(e.data,s,{ajaxLib:o,onProgress:n}))}function u(e,t,s={}){const o=s.ajaxLib||i["a"]
+const n=s.ajaxLibOptions||{}
+e&&e.attachments&&e.attachments[0]&&(e=e.attachments[0])
+if(!e)throw new Error("expected a preflightResponse")
+if(t&&!e.upload_url)throw new Error("expected a preflightResponse with an upload_url",{preflightResponse:e})
+if(!t&&!e.progress)throw new Error("expected a preflightResponse with a progress",{preflightResponse:e})
+const{upload_url:l,progress:p}=e
+if(!l)return Object(r["a"])(p,{ajaxLib:o}).catch(d)
+let{file_param:h,upload_params:u,success_url:m}=e
+h=h||"file"
+u=u||{}
+m=m||u.success_url
+const f=!!m
+const g=new FormData
+Object.entries(u).forEach(([e,t])=>g.append(e,t))
+t&&g.append(h,t,s.filename)
+const v=o.post(l,g,{responseType:f?"document":"json",onUploadProgress:s.onProgress,withCredentials:!f,...n})
+return v.catch(c).then(e=>{if(p)return Object(r["a"])(p,{ajaxLib:o}).catch(d)
+let t,i={}
+if(m){const{Bucket:s,Key:o,ETag:a}=e.data
+t=m
+i={bucket:s,key:o,etag:a}}else if(201===e.status&&!s.ignoreResult){t=e.data.location
+i={}}if(t){s.includeAvatar&&(i.include="avatar")
+i=a.a.stringify(i)
+i&&(t=-1!==t.indexOf("?")?`${t}&${i}`:`${t}?${i}`)
+return o.get(t).then(({data:e})=>e).catch(d)}return e.data})}function m(e,t,s){const i=`/api/v1/courses/${t}/assignments/${s}/submissions/self/comments/files`
+const o=e.map(e=>{const t={name:e.name,content_type:e.type}
+return h(i,t,e)})
+return Promise.all(o)}function f(e,t){const s=e.map(e=>e.url?h(t,{url:e.url,name:e.title,content_type:e.mediaType,submit_assignment:false}):h(t,{name:e.name,content_type:e.type},e))
+return Promise.all(s)}},GN1s:function(e,t,s){"use strict"
+s.d(t,"a",(function(){return n}))
+var i=s("RtDj")
+var o=s("q1tI")
+var a=s.n(o)
+class n extends a.a.Component{render(){return Object(i["a"])("div",{className:this.props.className},void 0,Object(i["a"])("div",{className:this.props.footerClassName},void 0,this.props.children))}}n.displayName="ModalButtons"
+n.defaultProps={className:"ReactModal__Footer",footerClassName:"ReactModal__Footer-Actions"}},MAjw:function(e,t,s){"use strict"
+var i=s("Y/W1")
+var o=s.n(i)
+var a=s("hlSq")
+var n=s("i8i4")
+var r=s.n(n)
+var l=s("9dNb")
+class p{constructor(){this.state=this.buildDefaultState()
+this.uploadOptions={alwaysRename:false,alwaysUploadZips:false}}buildDefaultState(){return{resolvedNames:[],nameCollisions:[],zipOptions:[],newOptions:false}}async applyCategory(e){const t=async e=>{const t=await l["a"](e.file)
+return{...e,...t}}
+return Promise.all(e.map(t))}queueUploads(e,t){this.applyCategory(this.state.resolvedNames).then(s=>{s.forEach(s=>{a["a"].enqueue(s,this.folder,e,t)})}).catch(e=>{throw e})
+this.setState({newOptions:false})}toFilesOptionArray(e){return[].slice.call(e,0).map(e=>({file:e}))}findMatchingFile(e){return(this.folder.files.models||this.folder.files).find(t=>t.get("display_name")===e)}isZipFile(e){return!!(null!=e.type?e.type.match(/zip/):void 0)}segregateOptionBuckets(e){const[t,s,i]=[[],[],[]]
+e.forEach(e=>{this.isZipFile(e.file)&&this.uploadOptions.alwaysUploadZips&&(e.expandZip=false)
+if(this.isZipFile(e.file)&&"undefined"===typeof e.expandZip)i.push(e)
+else if("skip"!==e.dup){const i=e.name||e.file.name
+const o=this.findMatchingFile(i)
+if(!o||"overwrite"===e.dup||null!=e.expandZip&&false!==e.expandZip||this.uploadOptions.alwaysRename){e.replacingFileId=null===o||void 0===o?void 0:o.id
+s.push(e)}else{o.get("restricted_by_master_course")&&(e.cannotOverwrite=true)
+t.push(e)}}})
+return{collisions:t,resolved:s,zips:i}}handleAddFilesClick(){return r.a.findDOMNode(this.refs.addFileInput).click()}handleFilesInputChange(e){const t=this.toFilesOptionArray(r.a.findDOMNode(this.refs.addFileInput).files)
+const{resolved:s,collisions:i,zips:o}=this.segregateOptionBuckets(t)
+this.setState({nameCollisions:i,resolvedNames:s,zipOptions:o})}onNameConflictResolved(e){let t,s
+const{nameCollisions:i}=this.state
+const{resolvedNames:o}=this.state
+let a=this.state.zipOptions
+o.push(e)
+i.shift()
+const n=o.concat(i).concat(a);({resolved:s,collisions:t,zips:a}=this.segregateOptionBuckets(n))
+this.setState({nameCollisions:t,resolvedNames:s,zipOptions:a})}onZipOptionsResolved(e){let t,s
+const{nameCollisions:i}=this.state
+const{resolvedNames:o}=this.state
+let a=this.state.zipOptions
+o.push(e)
+a.shift()
+const n=o.concat(i).concat(a);({resolved:s,collisions:t,zips:a}=this.segregateOptionBuckets(n))
+this.setState({nameCollisions:t,resolvedNames:s,zipOptions:a})}setOptionsFromFiles(e,t){const s=this.toFilesOptionArray(e)
+const{resolved:i,collisions:o,zips:a}=this.segregateOptionBuckets(s)
+this.setState({nameCollisions:o,resolvedNames:i,zipOptions:a,newOptions:true})
+if(t&&this.onChange)return this.onChange()}hasNewOptions(){return this.state.newOptions}setFolder(e){return this.folder=e}getFolder(){return this.folder}setState(e){return this.state=o.a.defaults(e,this.state)}getState(){return this.state}resetState(){return this.state=this.buildDefaultState()}setUploadOptions(e){this.uploadOptions.alwaysRename=!!e.alwaysRename
+this.uploadOptions.alwaysUploadZips=!!e.alwaysUploadZips}onChange(){}}t["a"]=new p},QYKH:function(e,t,s){"use strict"
+var i=s("mX+G")
+var o=s.n(i)
+var a=s("Y/W1")
+var n=s.n(a)
+var r=s("s9Pr")
+var l=function(e,t){for(var s in t)p.call(t,s)&&(e[s]=t[s])
+function i(){this.constructor=e}i.prototype=t.prototype
+e.prototype=new i
+e.__super__=t.prototype
+return e},p={}.hasOwnProperty
+t["a"]=function(e){l(t,e)
+function t(){return t.__super__.constructor.apply(this,arguments)}t.prototype.displayName=function(){return this.get("display_name")||this.get("name")}
+t.prototype.destinationIsSameContext=function(e){var t,s,i,o,a,n,l,p
+l=(t=this.get("context_asset_string"))?Object(r["a"])(t,false):[null!=(o=this.collection.parentFolder)?o.get("context_type"):void 0,null!=(a=this.collection.parentFolder)&&null!=(n=a.get("context_id"))?n.toString():void 0],i=l[0],s=l[1]
+return i&&s&&i.toLowerCase()===e.get("context_type").toLowerCase()&&s===(null!=(p=e.get("context_id"))?p.toString():void 0)}
+t.prototype.moveTo=function(e,t){null==t&&(t={})
+return this.destinationIsSameContext(e)?this.moveToFolder(e,t):this.copyToContext(e,t)}
+t.prototype.moveToFolder=function(e,t){var s
+null==t&&(t={})
+s=this.setAttributes({parent_folder_id:e.id},t)
+$.extend(s,{parent_folder_id:e.id})
+return this.save({},{attrs:s}).then((i=this,function(){i.collection.remove(i)
+return i.updateCollection(i,e,t)}))
+var i}
+t.prototype.copyToContext=function(e,t){var s,i,o,a,r,l
+null==t&&(t={})
+s=this.setAttributes($.extend({},this.attributes),t)
+r=this.isFile?"file":"folder"
+s["source_"+r+"_id"]=s.id
+delete s.id
+i=new this.constructor(n.a.omit(s,"id","parent_folder_id","parent_folder_path"))
+o=this.updateCollection(i,e,t)
+i.url=o.url
+this.set("url",o.url)
+a="copy_"+r
+l="/api/v1/folders/"+e.attributes.id+"/"+a
+return i.save(s,{url:l})}
+t.prototype.setAttributes=function(e,t){null==e&&(e={})
+null==t&&(t={})
+"overwrite"===t.dup?$.extend(e,{on_duplicate:"overwrite"}):"rename"===t.dup&&(t.name?$.extend(e,{display_name:t.name,name:t.name,on_duplicate:"rename"}):$.extend(e,{on_duplicate:"rename"}))
+return e}
+t.prototype.updateCollection=function(e,t,s){var i,o
+o=this.isFile?"files":"folders"
+i=t[o]
+"overwrite"===s.dup&&i.remove(i.where({display_name:e.get("display_name")}))
+i.add(e,{merge:true})
+return i}
+return t}(o.a.Model)},RfgP:function(e,t,s){"use strict"
+var i=s("RtDj")
+var o=s("q1tI")
+var a=s.n(o)
+var n=s("fhzG")
+var r=s.n(n)
+var l=s("i8i4")
+var p=s.n(l)
+var c=s("17x9")
+var d=s.n(c)
+var h={displayName:"FileRenameForm",propType:{fileOptions:d.a.object,onNameConflictResolved:d.a.func.isRequired,allowSkip:d.a.bool,onRenameFileMessage:d.a.func,onLockFileMessage:d.a.func},getInitialState(){return{isEditing:false,fileOptions:this.props.fileOptions}},componentWillReceiveProps(e){this.setState({fileOptions:e.fileOptions,isEditing:false})},handleRenameClick(){this.setState({isEditing:true})},handleBackClick(){this.setState({isEditing:false})},handleSkipClick(){this.props.closeOnResolve&&this.refs.canvasModal.closeModal()
+return this.props.onNameConflictResolved({file:this.state.fileOptions.file,dup:"skip",name:this.state.fileOptions.name,expandZip:this.state.fileOptions.expandZip})},handleReplaceClick(){this.props.closeOnResolve&&this.refs.canvasModal.closeModal()
+return this.props.onNameConflictResolved({file:this.state.fileOptions.file,dup:"overwrite",name:this.state.fileOptions.name,expandZip:this.state.fileOptions.expandZip})},handleChangeClick(){this.props.closeOnResolve&&this.refs.canvasModal.closeModal()
+return this.props.onNameConflictResolved({file:this.state.fileOptions.file,dup:"rename",name:p.a.findDOMNode(this.refs.newName).value,expandZip:this.state.fileOptions.expandZip})},handleFormSubmit(e){e.preventDefault()
+return this.handleChangeClick()}}
+var u=s("vCN0")
+var m=s("0unK")
+var f=s("GN1s")
+var g=s("HGxv")
+const v=Object(g["useScope"])("file_rename_form")
+h.buildContent=function(){const{onRenameFileMessage:e,onLockFileMessage:t}=this.props
+const s=this.state.fileOptions.name||this.state.fileOptions.file.name
+let o
+if(this.state.isEditing||this.state.fileOptions.cannotOverwrite){let e
+e=this.state.fileOptions.cannotOverwrite?(null===t||void 0===t?void 0:t(s))||v.t('A locked item named "%{name}" already exists in this location. Please enter a new name.',{name:s}):v.t('Change "%{name}" to',{name:s})
+o=a.a.createElement("div",{ref:"bodyContent"},Object(i["a"])("p",{},void 0,e),Object(i["a"])("form",{onSubmit:this.handleFormSubmit},void 0,Object(i["a"])("label",{className:"file-rename-form__form-label"},void 0,v.t("Name")),a.a.createElement("input",{className:"input-block-level",type:"text",defaultValue:s,ref:"newName"})))}else o=a.a.createElement("div",{ref:"bodyContent"},Object(i["a"])("p",{id:"renameFileMessage"},void 0,(null===e||void 0===e?void 0:e(s))||v.t('An item named "%{name}" already exists in this location. Do you want to replace the existing file?',{name:s})))
+return o}
+h.buildButtons=function(){let e
+if(this.state.fileOptions.cannotOverwrite)e=[a.a.createElement("button",{key:"commitChangeBtn",ref:"commitChangeBtn",className:"btn btn-primary",onClick:this.handleChangeClick},v.t("Change"))]
+else if(this.state.isEditing)e=[a.a.createElement("button",{key:"backBtn",ref:"backBtn",className:"btn btn-default",onClick:this.handleBackClick},v.t("Back")),a.a.createElement("button",{key:"commitChangeBtn",ref:"commitChangeBtn",className:"btn btn-primary",onClick:this.handleChangeClick},v.t("Change"))]
+else{e=[a.a.createElement("button",{key:"renameBtn",ref:"renameBtn",className:"btn btn-default",onClick:this.handleRenameClick},v.t("Change Name")),a.a.createElement("button",{key:"replaceBtn",ref:"replaceBtn",className:"btn btn-primary",onClick:this.handleReplaceClick},v.t("Replace"))]
+this.props.allowSkip&&e.unshift(a.a.createElement("button",{key:"skipBtn",ref:"skipBtn",className:"btn btn-default",onClick:this.handleSkipClick},v.t("Skip")))}return e}
+h.render=function(){return Object(i["a"])("div",{},void 0,a.a.createElement(u["a"],{className:"ReactModal__Content--canvas ReactModal__Content--mini-modal",ref:"canvasModal",isOpen:this.props.fileOptions,title:v.t("Copy"),onRequestClose:this.props.onClose,closeWithX:this.props.closeWithX,"data-testid":"FileRenameForm-modal"},Object(i["a"])(m["a"],{},void 0,this.buildContent(),Object(i["a"])(f["a"],{},void 0,this.buildButtons()))))}
+t["a"]=r()(h)},"e2r+":function(e,t,s){"use strict"
+var i=s("RtDj")
+var o=s("q1tI")
+var a=s.n(o)
+s("17x9")
+var n=s("TSYQ")
+var r=s.n(n)
+var l=s("HGxv")
+var p=s("9Qmj")
+var c=s("scx4")
+var d=s("hlSq")
+var h=s("uloQ")
+const u=Object(l["useScope"])("files_upload_progress")
+class m extends a.a.Component{constructor(e){super(e)
+this.state={progress:0,messages:{}}
+this.resetProgress=this.resetProgress.bind(this)}componentDidMount(){const e=this.props.uploader.roundProgress()
+if(this.state.progress!==e)return this.sendProgressUpdate(e)}UNSAFE_componentWillReceiveProps(e){const t=e.uploader.roundProgress()
+if(this.state.progress!==t)return this.sendProgressUpdate(t)}componentWillUnmount(){return this.sendProgressUpdate(this.state.progress)}sendProgressUpdate(e){const{messages:t}=this.state
+if(!(e in t)){const s=this.props.uploader.getFileName()
+const i=e<100?u.t("%{fileName} - %{progress} percent uploaded",{fileName:s,progress:e}):u.t("%{fileName} uploaded successfully!",{fileName:s})
+Object(h["b"])({message:i,err:null,type:"info",srOnly:true})
+t[e]=true
+this.setState({messages:t,progress:e})}}resetProgress(){this.setState({messages:{},progress:0})}renderProgressBar(){if(this.props.uploader.error){const e=this.props.uploader.error.message?u.t("Error: %{message}",{message:this.props.uploader.error.message}):u.t("Error uploading file.")
+Object(h["b"])({message:e,type:"error",srOnly:true})
+return Object(i["a"])("span",{},void 0,e,Object(i["a"])("button",{type:"button",className:"btn-link",onClick:()=>{this.resetProgress()
+d["a"].attemptThisUpload(this.props.uploader)}},void 0,u.t("Retry")))}return Object(i["a"])(p["a"],{progress:this.props.uploader.roundProgress()})}render(){const e=r()({"ef-item-row":true,"text-error":this.props.uploader.error})
+return Object(i["a"])("div",{className:e},void 0,Object(i["a"])("div",{className:"col-xs-6"},void 0,Object(i["a"])("div",{className:"media ellipsis"},void 0,Object(i["a"])("span",{className:"pull-left"},void 0,Object(i["a"])("i",{className:"media-object mimeClass-"+Object(c["a"])(this.props.uploader.getFileType())})),Object(i["a"])("span",{className:"media-body"},void 0,this.props.uploader.getFileName()))),Object(i["a"])("div",{className:"col-xs-5"},void 0,this.renderProgressBar()),this.props.uploader.canAbort()&&Object(i["a"])("button",{type:"button",onClick:this.props.uploader.cancel,"aria-label":u.t("Cancel"),className:"btn-link upload-progress-view__button"},void 0,"x"))}}var f=m
+class g extends a.a.Component{constructor(...e){super(...e)
+this.state={currentUploads:[]}
+this.handleUploadQueueChange=e=>{this.setState({currentUploads:e.getAllUploaders()},()=>{this.props.onUploadChange(this.state.currentUploads.length)})}
+this.renderUploadProgress=function(){if(this.state.currentUploads.length){const e=this.state.currentUploads.map(e=>Object(i["a"])(f,{uploader:e},e.getFileName()))
+return Object(i["a"])("div",{className:"current_uploads__uploaders"},void 0,e)}return null}}componentDidMount(){d["a"].addChangeListener(this.handleUploadQueueChange)}componentWillUnmount(){d["a"].removeChangeListener(this.handleUploadQueueChange)}render(){const e=r()({current_uploads:this.state.currentUploads.length})
+return Object(i["a"])("div",{className:e},void 0,this.renderUploadProgress())}}g.defaultProps={onUploadChange:()=>{}}
+t["a"]=g},gBVS:function(e,t,s){"use strict"
+s.d(t,"a",(function(){return a}))
+var i=s("BrAc")
+function o(e){return new Promise(t=>{setTimeout(t,e)})}function a(e,t={}){const s=t.ajaxLib||i["a"]
+const{url:n,workflow_state:r,results:l,message:p}=e
+if("queued"===r||"running"===r){let{interval:e}=t
+e||(e=1e3)
+e<100&&(e=100)
+return o(e).then(()=>s.get(n)).then(e=>{const s=e.data
+return a(s,t)})}return"completed"===r?Promise.resolve(l):Promise.reject(p)}},hlSq:function(e,t,s){"use strict"
+var i=s("Y/W1")
+var o=s.n(i)
+var a=s("C8i9")
+var n=s("vavB")
+class r extends n["a"]{constructor(e,t){super(e,t)
+this.addFileToCollection=e=>{var t,s
+if(null!==(t=this.folder)&&void 0!==t&&null!==(s=t.files)&&void 0!==s&&s.add){const t=new a["a"](e,"no/url/needed/")
+this.folder.files.add(t)
+if("overwrite"===this.options.dup){const e=this.options.name||this.file.name
+const t=this.folder.files.findWhere({display_name:e})
+t&&this.folder.files.remove(t)}}}
+this.onUploadPosted=this.onUploadPosted.bind(this)}onUploadPosted(e){this.inFlight=false
+this.options.replacingFileId&&(e.replacingFileId=this.options.replacingFileId)
+this.addFileToCollection(e)
+super.onUploadPosted(e)}}var l=s("BrAc")
+class p extends n["a"]{constructor(e,t,s,i){super(e,t)
+this.onPreflightComplete=({data:e})=>{this.uploadData=e.pre_attachment
+this.contentMigrationId=e.id
+return this._actualUpload()}
+this.getContentMigration=()=>Object(l["a"])({url:`/api/v1/${this.contextType}/${this.contextId}/content_migrations/${this.contentMigrationId}`,method:"GET",responseType:"json"}).then(({data:e})=>e.progress_url?this.pullMigrationProgress(e.progress_url):new Promise((e,t)=>{setTimeout(()=>{this.getContentMigration().then(e).catch(t)},500)}))
+this.pullMigrationProgress=e=>Object(l["a"])({url:e,method:"GET",responseType:"json"}).then(({data:t})=>{this.trackMigrationProgress(t.completion||0)
+if("failed"===t.workflow_state)throw new Error("zip file migration failed")
+if(t.completion<100){if(t.completion>0){const e={loaded:t.completion,total:100}
+this.trackProgress(e)}return new Promise((s,i)=>{setTimeout(()=>{this.pullMigrationProgress(`${e}#${t.completion}`).then(s).catch(i)},1e3)})}return this.onMigrationComplete()})
+this.trackProgress=e=>{this.progress=e.loaded/e.total
+return this.onProgress(this.progress,this.file)}
+this.contextId=s
+this.contextType=i
+this.migrationProgress=0
+this.onUploadPosted=this.onUploadPosted.bind(this)
+this.onUploadCancelled=this.onUploadCancelled.bind(this)}createPreFlightParams(){return{migration_type:"zip_file_importer",settings:{folder_id:this.folder.id},pre_attachment:{name:this.options.name||this.file.name,size:this.file.size,content_type:this.file.type,on_duplicate:this.options.dup||"rename",no_redirect:true}}}getPreflightUrl(){return`/api/v1/${this.contextType}/${this.contextId}/content_migrations`}onUploadPosted(){this._cancelToken=null
+this.onProgress(this.progress,this.file)
+const e=this.getContentMigration()
+super.onUploadPosted()
+return e}onMigrationComplete(){this.inFlight=false
+return this.folder.folders.fetch({reset:true}).then(()=>this.folder.files.fetch({reset:true}))}trackMigrationProgress(e){return this.migrationProgress=e/100}getProgress(){return(this.progress+this.migrationProgress)/2}roundProgress(){const e=this.getProgress()||0
+return Math.min(Math.round(100*e),100)}getFileName(){return this.options.name||this.file.name}}class c{constructor(){this.listeners=[]}length(){return this._queue.length}pendingUploads(){return this._queue.length+(this.currentUploader?1:0)}flush(){this._queue=[]
+this.currentUploader=null
+this.onChange()}getAllUploaders(){let e=this._queue.slice()
+this.currentUploader&&(e=e.concat(this.currentUploader))
+return e.reverse()}getCurrentUploader(){return this.currentUploader}addChangeListener(e){this.listeners.push(e)}removeChangeListener(e){this.listeners=this.listeners.filter(t=>t!==e)}onChange(){this.listeners.forEach(e=>e(this))}createUploader(e,t,s,i){const a=e.expandZip?new p(e,t,s,i):new r(e,t)
+a.onProgress=()=>{this.onChange()}
+a.cancel=()=>{a.abort()
+this._queue=o.a.without(this._queue,a)
+this.currentUploader===a&&(this.currentUploader=null)
+return this.onChange()}
+return a}enqueue(e,t,s,i){const o=this.createUploader(e,t,s,i)
+this._queue.push(o)
+return this.attemptNextUpload()}dequeue(){const e=this._queue.find(e=>!e.error)
+this._queue=o.a.without(this._queue,e)
+return e}removeUploaderFromQueue(e){if(e.error||e.inFlight)return
+const t=this._queue.findIndex(t=>t===e)
+t>=0&&this._queue.splice(t,1)}pageChangeWarning(e){e.preventDefault()
+e.returnValue=""}attemptNextUpload(){if(this._uploading||0===this._queue.length)return
+const e=this.dequeue()
+this.attemptThisUpload(e)}attemptThisUpload(e){if(!e)return
+e.reset()
+if(this._uploading)return
+this.removeUploaderFromQueue(e)
+this.currentUploader=e
+this.onChange()
+this._uploading=true
+window.addEventListener("beforeunload",this.pageChangeWarning)
+return e.upload().catch(t=>{if("user_aborted_upload"!==t)return this._queue.unshift(e)}).finally(()=>{var e
+this._uploading=false
+null!==(e=this.currentUploader)&&void 0!==e&&e.inFlight||(this.currentUploader=null)
+window.removeEventListener("beforeunload",this.pageChangeWarning)
+this.onChange()
+this.attemptNextUpload()})}}c.prototype._uploading=false
+c.prototype._queue=[]
+t["a"]=new c},vCN0:function(e,t,s){"use strict"
+s.d(t,"a",(function(){return v}))
+var i=s("RtDj")
+var o=s("q1tI")
+var a=s.n(o)
+var n=s("ouhR")
+var r=s.n(n)
+var l=s("Y/W1")
+var p=s.n(l)
+var c=s("qqwe")
+var d=s("JHuN")
+var h=s("0unK")
+var u=s("GN1s")
+var m,f
+const g={overlay:{backgroundColor:"rgba(0,0,0,0.5)",zIndex:"2002"},content:{position:"static",top:"0",left:"0",right:"auto",bottom:"auto",borderRadius:"0",border:"none",padding:"0"}}
+class v extends a.a.Component{constructor(...e){super(...e)
+this.state={modalIsOpen:this.props.isOpen}
+this.openModal=()=>{this.setState({modalIsOpen:true})}
+this.cleanupAfterClose=()=>{this.props.onRequestClose&&this.props.onRequestClose()
+r()(this.getAppElement()).removeAttr("aria-hidden")}
+this.closeModal=()=>{this.setState({modalIsOpen:false},this.cleanupAfterClose)}
+this.closeWithX=()=>{p.a.isFunction(this.props.closeWithX)&&this.props.closeWithX()
+this.closeModal()}
+this.onSubmit=()=>{const e=this.props.onSubmit()
+r()(this.modal).disableWhileLoading(e)}
+this.onAfterOpen=()=>{this.closeBtn.focus()
+this.props.onAfterOpen&&this.props.onAfterOpen()}
+this.getAppElement=()=>this.props.appElement||document.getElementById("application")
+this.processMultipleChildren=e=>{let t=null
+let s=null
+a.a.Children.forEach(e.children,e=>{e.type===h["a"]?t=e:e.type===u["a"]?s=e:console.warn("Modal chilren must be wrapped in either a modal-content or modal-buttons component.")})
+return this.props.onSubmit?Object(i["a"])("form",{className:"ModalForm",onSubmit:Object(c["a"])(this.onSubmit)},void 0,[t,s]):[t,s]}}componentWillReceiveProps(e){let t
+this.props.isOpen&&!e.isOpen&&(t=this.cleanupAfterClose)
+this.setState({modalIsOpen:e.isOpen},t)}render(){return Object(i["a"])("div",{className:"canvasModal"},void 0,Object(i["a"])(d["a"],{ariaHideApp:!!this.state.modalIsOpen,isOpen:!!this.state.modalIsOpen,onRequestClose:this.closeModal,className:this.props.className,style:g,onAfterOpen:this.onAfterOpen,overlayClassName:this.props.overlayClassName,contentLabel:this.props.contentLabel,appElement:this.getAppElement()},void 0,a.a.createElement("div",{ref:e=>{this.modal=e},className:"ReactModal__Layout",style:this.props.style},Object(i["a"])("div",{className:"ReactModal__Header"},void 0,Object(i["a"])("div",{className:"ReactModal__Header-Title"},void 0,Object(i["a"])("h4",{},void 0,this.props.title)),Object(i["a"])("div",{className:"ReactModal__Header-Actions"},void 0,a.a.createElement("button",{ref:e=>{this.closeBtn=e},className:"Button Button--icon-action",type:"button",onClick:this.closeWithX},m||(m=Object(i["a"])("i",{className:"icon-x"})),f||(f=Object(i["a"])("span",{className:"screenreader-only"},void 0,"Close"))))),this.processMultipleChildren(this.props))))}}v.defaultProps={className:"ReactModal__Content--canvas",style:{}}},vavB:function(e,t,s){"use strict"
+s.d(t,"a",(function(){return a}))
+var i=s("BrAc")
+var o=s("EyBU")
+class a{constructor(e,t){this.onPreflightComplete=({data:e})=>{this.uploadData=e
+return this._actualUpload()}
+this.trackProgress=e=>{this.progress=e.loaded/e.total
+return this.onProgress(this.progress,this.file)}
+this.canAbort=()=>!!this._cancelToken
+this.abort=()=>{null===this||void 0===this||this._cancelRequest()
+this.onUploadCancelled(this.file)}
+this.file=e.file
+this.options=e
+this.folder=t
+this.progress=0
+this._cancelRequest=null
+this._cancelToken=null
+this.inFlight=false}onProgress(e,t){}createPreFlightParams(){return{name:this.options.name||this.file.name,size:this.file.size,content_type:this.file.type,on_duplicate:this.options.dup||"rename",parent_folder_id:this.folder.id,no_redirect:true,category:this.options.category}}getPreflightUrl(){return`/api/v1/folders/${this.folder.id}/files`}upload(){this._cancelToken=new i["a"].CancelToken(e=>{this._cancelRequest=e})
+this.inFlight=true
+return Object(i["a"])({url:this.getPreflightUrl(),method:"POST",data:this.createPreFlightParams(),responseType:"json",cancelToken:this._cancelToken}).then(this.onPreflightComplete).catch(e=>{this.inFlight=false
+if(i["a"].isCancel(e)){this.onUploadCancelled()
+throw"user_aborted_upload"}this.error=e
+throw e})}_actualUpload(){return Object(o["completeUpload"])(this.uploadData,this.file,{ajaxLib:i["a"],onProgress:this.trackProgress,ajaxLibOptions:{cancelToken:this._cancelToken}}).then(this.onUploadPosted)}onUploadPosted(){}onUploadCancelled(e){this.inFlight=false}getProgress(){return this.progress}roundProgress(){const e=this.getProgress()||0
+return Math.min(Math.round(100*e),100)}getFileType(){return this.file.type}getFileName(){return this.options.name||this.file.name}reset(){this.error=null
+this.progress=0}}}}])
+
+//# sourceMappingURL=54-c-e1967b1340.js.map
